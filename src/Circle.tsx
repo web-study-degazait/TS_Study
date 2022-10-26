@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface CircleProps {
@@ -15,6 +16,10 @@ const Container = styled.div<CircleProps>`
 `;
 
 function Circle({ bgColor, borderColor, text = "default text" }: CircleProps) {
+  const [value, setValue] = useState<string | number>(0);
+  setValue(2); //문자열로 타입 지정
+  setValue("hello"); //string으로 타입지정
+  setValue(true); //에러 뜸
   return (
     <>
       <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
